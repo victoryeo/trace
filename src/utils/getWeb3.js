@@ -1,39 +1,25 @@
 import Web3 from "web3";
+import { ganachehost } from './constants'
 
-let getWeb3 = new Promise(function(resolve, reject) {
-  window.addEventListener("load", async () => {
-    const ethereum = window.ethereum;
-    const web3 = window.web3;
-    if (ethereum) {
-      window.web3 = new Web3(ethereum);
-      try {
-        // Request account access if needed
-        await ethereum.enable();
-        // Acccounts now exposed
-        web3.eth.sendTransaction({
-          /* ... */
-        });
-      } catch (error) {
-        // User denied account access...
-      }
-    }
-    // Legacy dapp browsers...
-    else if (window.web3) {
-      window.web3 = new Web3(web3.currentProvider);
-      // Acccounts always exposed
-      web3.eth.sendTransaction({
-        /* ... */
-      });
-    }
-    // Non-dapp browsers...
-    else {
-      console.log(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
-      );
-    }
+const getWeb3 = new Promise(resolve => {
+  // Wait for loading completion to avoid race conditions with web3 injection timing.
+  window.addEventListener('load', dispatch => {
+    let results;
+    let { web3 } = window;
+    console.log("web3 " + web3)
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    {
+      // Fallback to localhost if no web3 injection. We've configured this to
+      // use the development console's port by default.
+      web3 = new Web3(new Web3.providers.HttpProvider(ganachehost))
+      console.log(web3.eth.accounts[0])
+      web3.eth.defaultAccount = web3.eth.accounts[0]
+      web3.personal.unlockAccount(web3.eth.defaultAccount)
 
-    resolve({ web3 });
-  });
-});
+      resolve({ web3 });
+    }
+  })
+})
+
 
 export default getWeb3;
