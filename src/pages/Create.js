@@ -21,8 +21,8 @@ class Create extends Component {
     this.state = {
       name: '',
       description: '',
-      latitude: '',
-      longitude: '',
+      latitude: 44.968046,
+      longitude: 44.968046,
       address: '',
       availableCertifications: [],
       selectedCertifications: {},
@@ -202,11 +202,7 @@ class Create extends Component {
               </FormGroup>
               <FormGroup>
                   <Label>Current location</Label>
-                  <PlacesAutocomplete
-                    inputProps={inputProps}
-                    onSelect={this.handleGeoSelect}
-                    classNames={{input: "form-control"}}
-                  />
+
               </FormGroup>
               <FormGroup>
                   <Label>Categorie(s)</Label>
