@@ -1,6 +1,4 @@
-### ⚠️ **This project is not supported anymore. Here be dragons!** ⚠️
-
-------------
+This is forked from maximevaillancourt/trace
 
 ![logo](https://user-images.githubusercontent.com/8457808/38818082-db3aea62-4167-11e8-8e59-7af47131c087.png)
 
@@ -17,46 +15,33 @@ on-premise (e.g. at the grocery store).
 
 Keep in mind that **this is a proof of concept**. It is *not* production ready by any means. However, we do invite you to play around with the project and use it as you see fit. There are some rough edges, so we definitely appreciate your help in improving the platform.
 
-This project was developed under the supervision of Bessam Abdulrazak, director of the [Ambient Intelligence Lab](https://ami.usherbrooke.ca/welcome/en-lab/) at Université de Sherbrooke.
-
 Made using the Truffle toolkit, React.js, Redux, and Webpack.
 
-Logo design by [Laurence Mailhiot](https://twitter.com/mailhiotlaur).
-
-## Screenshot
-
-![scrot](https://user-images.githubusercontent.com/8457808/38819232-d35aed1e-4168-11e8-90e7-1d74fe726729.png)
 
 ## Installing / Getting started
 
-0. Clone the repo:
+1. Clone the repo:
 
     ```shell
     git clone https://github.com/maximevaillancourt/trace.git
     cd trace
     ```
-    
-1. Install the Truffle toolkit globally and install project dependencies:
 
-    ```shell
-    npm install -g truffle@4.1.7 && npm install
+    ```
+    npm install
     ```
 
-2. In a new shell, start the Truffle development console:
+2. In a new shell, start the Truffle command:
 
     ```shell
-    truffle develop
+    truffle compile
     ```
-
-3. In the Truffle console, compile and deploy the smart contracts:
-
-    This will effectively reset your local blockchain, meaning that all existing transactions will be deleted.
 
     ```shell
-    migrate --reset
+    truffle migrate --reset
     ```
 
-4. Back in a regular shell, start the Webpack server:
+3. Back in a regular shell, start the Webpack server:
 
     ```shell
     npm run start
@@ -76,7 +61,7 @@ To change something in the "smart contracts" side of things, you need to compile
 using the following command in the Truffle console:
 
 ```shell
-migrate --reset
+truffle migrate --reset
 ```
 
 As for the React front-end, the Webpack server should refresh the page in your browser automatically when a change is detected.
@@ -105,20 +90,8 @@ You're free to deploy the generated front-end bundle wherever you see fit. As fo
 
 # Contributing
 
-For bug fixes, documentation changes, and small features:  
-
-1. [Fork it](https://github.com/maximevaillancourt/trace/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)  
-3. Commit your changes (`git commit -am 'Add some feature'`) using [GPG signing](https://help.github.com/articles/signing-commits-using-gpg/)
-4. Push to the branch (`git push origin my-new-feature`)  
-5. Create a new Pull Request
-
-For larger new features: do everything as above, but first also make contact with the project maintainers to be sure your change fits with the project direction and you won't be wasting effort going in the wrong direction
-
 ## Links
 
-- Repository: https://github.com/maximevaillancourt/trace
-- Issue tracker: https://github.com/maximevaillancourt/trace/issues
 - Related projects:
   - Provenance: http://provenance.org/
   - SCTS: https://github.com/AtrauraBlockchain/scts
