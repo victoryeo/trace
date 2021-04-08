@@ -1,4 +1,4 @@
-This is forked from maximevaillancourt/trace
+This is forked from maximevaillancourt/trace. I update it so that it can run in Ubuntu 20.04.
 
 ![logo](https://user-images.githubusercontent.com/8457808/38818082-db3aea62-4167-11e8-8e59-7af47131c087.png)
 
@@ -30,8 +30,9 @@ Made using the Truffle toolkit, React.js, Redux, and Webpack.
     ```
     npm install
     ```
+1.5. Start a local ganache node
 
-2. In a new shell, start the Truffle command:
+2. In a new shell, run the Truffle command to compile and deploy contracts to ganache:
 
     ```shell
     truffle compile
